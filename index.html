@@ -1,0 +1,123 @@
+<link rel="stylesheet" href="style.css"
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enkripsi & Dekripsi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            resize: none; /* Disable resizing */
+        }
+
+        input[type="file"],
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 48%;
+            padding: 10px;
+            background: #5cb85c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #4cae4c;
+        }
+
+        .result {
+            max-width: 600px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .result h2 {
+            color: #333;
+        }
+
+        .result p {
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>Enkripsi dan Dekripsi</h1>
+    <form method="post" enctype="multipart/form-data">
+        <label for="text">Teks (atau unggah file):</label>
+        <textarea id="text" name="text"></textarea>
+
+        <label for="file">Unggah File:</label>
+        <input type="file" id="file" name="file">
+
+        <label for="key">Kunci:</label>
+        <input type="text" id="key" name="key" required>
+
+        <label for="method">Metode:</label>
+        <select id="method" name="method" required>
+            <option value="">Pilih Metode</option>
+            <option value="vigenere">Vigenere Cipher</option>
+            <option value="auto_key">Auto-Key Vigenere Cipher</option>
+            <option value="playfair">Playfair Cipher</option>
+            <option value="hill">Hill Cipher</option>
+            <option value="super">Super Enkripsi</option>
+        </select>
+
+        <div>
+            <button type="submit" name="encrypt">Enkripsi</button>
+            <button type="submit" name="decrypt">Dekripsi</button>
+        </div>
+    </form>
+
+    <div class="result">
+        <h2>Hasil:</h2>
+        <p><?php echo isset($result) ? $result : ''; ?></p>
+    </div>
+</body>
+</html>
